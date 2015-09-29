@@ -5,27 +5,28 @@ import urllib2, urllib
 
 # Date we need in format DD.MM.YYYY, defaults is yesterday
 for i in range(1,31):
-day = date.today() - timedelta(i)
-date = day.strftime("%d.%m.%Y")
+	day = date.today() - timedelta(i)
+	date = day.strftime("%d.%m.%Y")
 
-# The page we need to scrape
-url = "http://powietrze.katowice.wios.gov.pl/dane-pomiarowe/pobierz"
+	# The page we need to scrape
+	url = "http://powietrze.katowice.wios.gov.pl/dane-pomiarowe/pobierz"
 
-# The POST data we'll send
-data = "query=%7B%22measType%22%3A%22Auto%22%2C%22viewType%22%3A%22Station%22%2C%22dateRange%22%3A%22Day%22%2C%22date%22%3A%22"+date+"%22%2C%22viewTypeEntityId%22%3A%223%22%2C%22channels%22%3A%5B36%2C44%2C61%2C41%2C49%2C60%2C51%2C52%2C39%2C62%2C43%2C46%2C66%5D%7D"
+	# The POST data we'll send
+	data = "query=%7B%22measType%22%3A%22Auto%22%2C%22viewType%22%3A%22Station%22%2C%22dateRange%22%3A%22Day%22%2C%22date%22%3A%22"+date+"%22%2C%22viewTypeEntityId%22%3A%223%22%2C%22channels%22%3A%5B36%2C44%2C61%2C41%2C49%2C60%2C51%2C52%2C39%2C62%2C43%2C46%2C66%5D%7D"
 
-# Sends the request 
-req = urllib2.Request(url, data)
-response = urllib2.urlopen(req)
+	# Sends the request 
+	req = urllib2.Request(url, data)
+	response = urllib2.urlopen(req)
 
-# Converts the response to JSON
-response_json = json.loads(response.read())
+	# Converts the response to JSON
+	response_json = json.loads(response.read())
 
-i=i+1
+	from random import randint
+	from time import sleep
+	sleep(randint(7,77))
+	i=i+1
 
-from random import randint
-from time import sleep
-sleep(randint(7,77))
+
 
 # Parse the JSON to a CSV file
 for series in response_json["data"]["series"]:
