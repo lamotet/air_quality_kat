@@ -4,7 +4,7 @@ import json
 import urllib2, urllib
 
 # Date we need in format DD.MM.YYYY, defaults is yesterday
-for i in range(1,31)
+for i in range(1,31):
 day = date.today() - timedelta(i)
 date = day.strftime("%d.%m.%Y")
 
