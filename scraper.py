@@ -5,8 +5,8 @@ import urllib2, urllib
 
 # Date we need in format DD.MM.YYYY, defaults is yesterday
 for i in range(1,31):
-	day = date.today() - timedelta(i)
-	date = day.strftime("%d.%m.%Y")
+	yesterday = date.today() - timedelta(i)
+	date = yesterday.strftime("%d.%m.%Y")
 
 	# The page we need to scrape
 	url = "http://powietrze.katowice.wios.gov.pl/dane-pomiarowe/pobierz"
