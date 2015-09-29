@@ -4,8 +4,9 @@ import json
 import urllib2, urllib
 
 # Date we need in format DD.MM.YYYY, defaults is yesterday
-yesterday = date.today() - timedelta(1)
-date = yesterday.strftime("%d.%m.%Y")
+for i in range(1,31)
+day = date.today() - timedelta(i)
+date = day.strftime("%d.%m.%Y")
 
 # The page we need to scrape
 url = "http://powietrze.katowice.wios.gov.pl/dane-pomiarowe/pobierz"
@@ -19,6 +20,12 @@ response = urllib2.urlopen(req)
 
 # Converts the response to JSON
 response_json = json.loads(response.read())
+
+i=i+1
+
+from random import randint
+from time import sleep
+sleep(randint(7,77))
 
 # Parse the JSON to a CSV file
 for series in response_json["data"]["series"]:
