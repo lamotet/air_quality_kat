@@ -1,5 +1,5 @@
 from datetime import date, timedelta
-from time import strftime
+from time import strftime, sleep
 from urllib import urlencode
 from sys import argv
 import json
