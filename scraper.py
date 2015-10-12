@@ -49,4 +49,4 @@ for i in range(1,357):
 		series_id = series["paramId"]
 		for data in series["data"]:
 			# Bear in mind that data[0] is a UNIX epoch timestamp
-			print ','.join([ station_name, series_id, data[0], data[1] ])
+			print ','.join([ str(station_name), str(series_id), str(data[0]), str(data[1]) ])
