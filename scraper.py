@@ -1,10 +1,9 @@
 from datetime import date, timedelta
 from time import strftime, sleep
 from random import randint
-from urllib import urlencode
 from sys import argv
 import json
-import urllib2
+import urllib
 # Local settings
 import settings
 
@@ -13,7 +12,7 @@ if len(argv) < 2 or not settings.STATIONS.get(argv[1], False):
 	# Human readable stations list
 	stations = ', '.join( settings.STATIONS.keys() )
 	# Print out the available stations
-	print 'You must specify the station: %s' % stations
+	print("You must specify the station: %s" % stations)
 	# End now
 	exit()
 
@@ -49,4 +48,4 @@ for i in range(1,357):
 		series_id = series["paramId"]
 		for data in series["data"]:
 			# Bear in mind that data[0] is a UNIX epoch timestamp
-			print ','.join([ str(station_name), str(series_id), str(data[0]), str(data[1]) ])
+			','.join([ str(station_name), str(series_id), str(data[0]), str(data[1]) ])
